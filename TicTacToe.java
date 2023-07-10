@@ -9,8 +9,7 @@ public class TicTacToe extends JPanel
     JLabel player1 = new JLabel("PLAYER 1 : O");
     JLabel player2 = new JLabel("PLAYER 1 : X");
     JLabel score1 = new JLabel("0");  JLabel score2 = new JLabel("0");
-    JButton[][] buttons = new JButton[3][3];
-
+    
     public TicTacToe()
     {
         setLayout(new BorderLayout());
@@ -24,13 +23,7 @@ public class TicTacToe extends JPanel
         score1.setFont(new Font("Arial", Font.BOLD, 40));
         score2.setFont(new Font("Arial", Font.BOLD, 40));
 
-        for(int i = 0; i < 3; i++)
-            for(int j = 0; j < 3; j++)
-            {
-                buttons[i][j] = new JButton();
-                bPanel.add(buttons[i][j]);
-                buttons[i][j].setBackground(Color.ORANGE);
-            }
+       
         
         sPanel.add(player1);  sPanel.add(player2);
         sPanel.add(score1);  sPanel.add(score2);
