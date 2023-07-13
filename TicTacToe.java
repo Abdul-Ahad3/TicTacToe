@@ -8,7 +8,7 @@ public class TicTacToe extends JPanel
     JLabel title = new JLabel("Tic Tac Toe Game");
     JLabel[][] scoreBoard = new JLabel[2][2];
     JButton[][] buttons = new JButton[3][3];
-    boolean turn = true;  boolean clicks = true;
+    boolean turn = true;  boolean clicks = true;  int score = 0;
 
     public TicTacToe()
     {
@@ -31,6 +31,13 @@ public class TicTacToe extends JPanel
                 buttons[x][y].addActionListener(e -> {
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;}
                     else{buttons[X][Y].setText("X");  turn = !turn;}
+
+                if(buttons[0][0].getText() == "O" && buttons[0][1].getText() == "O" && buttons[0][2].getText() == "O")
+                {scoreBoard[1][0].setText(String.valueOf(score++));}
+                else if(buttons[1][0].getText() == "O" && buttons[1][1].getText() == "O" && buttons[1][2].getText() == "O")
+                {scoreBoard[1][0].setText(String.valueOf(score++));}
+                else if(buttons[2][0].getText() == "O" && buttons[2][1].getText() == "O" && buttons[2][2].getText() == "O")
+                {scoreBoard[1][0].setText(String.valueOf(score++));}
                 });
             }
         
