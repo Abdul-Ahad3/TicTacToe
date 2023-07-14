@@ -6,7 +6,7 @@ public class main {
         JFrame window = new JFrame();
         window.add(new TicTacToe());
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(500, 500);
+        window.setSize(400, 500);
         window.setVisible(true);
     }
 }
