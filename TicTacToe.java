@@ -9,17 +9,7 @@ public class TicTacToe extends JPanel
     JLabel player1 = new JLabel("PLAYER 1 : O");
     JLabel player2 = new JLabel("PLAYER 2 : X");
 
-    @Override
-    public void paintComponent(Graphics g)
-    {
-        System.out.println("Called");
-        super.paintComponent(g);
-        int w = getWidth(); int h = getHeight();
-        g.drawLine(w/3, 60, w/3, h - 90);
-        g.drawLine(w * 2/3, 60, w * 2/3, h - 90);
-        g.drawLine(0, h/3, w, h/3);
-        g.drawLine(0, h * 2/3, w, h * 2/3);
-    }
+    
     
     public TicTacToe()
     {
@@ -34,5 +24,26 @@ public class TicTacToe extends JPanel
         sPanel.add(player1);  sPanel.add(player2);
         
         add(title, BorderLayout.NORTH);  add(sPanel, BorderLayout.SOUTH);
+        add(new gPanel(), BorderLayout.CENTER);
+    }
+
+    public class gPanel extends JPanel
+    {
+        @Override
+        public void paintComponent(Graphics g)
+        {
+            super.paintComponent(g);
+            int w = getWidth(); int h = getHeight();
+            g.drawLine(w/3, 0, w/3, h);
+            g.drawLine(w * 2/3, 0, w * 2/3, h);
+            g.drawLine(0, h/3, w, h/3);
+            g.drawLine(0, h * 2/3, w, h * 2/3);
+        }
+
+        public gPanel()
+        {
+            setBackground(Color.ORANGE);
+            setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+        }
     }
 }
