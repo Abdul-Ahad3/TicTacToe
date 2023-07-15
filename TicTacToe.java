@@ -9,11 +9,11 @@ public class TicTacToe extends JPanel
     JLabel player1 = new JLabel("PLAYER 1 : O");
     JLabel player2 = new JLabel("PLAYER 1 : X");
     
-    String[][] Board = {{"  ", "|", " ", "|", " "}, 
+    String[][] Board = {{"  ", " |", " ", " |", " "}, 
                         {"--", "--", "--", "--", "--"}, 
-                        {"  ", "|", " ", "|", " "}, 
+                        {"  ", " |", " ", " |", " "}, 
                         {"--", "--", "--", "--", "--"}, 
-                        {"  ", "|", " ", "|", " "}};
+                        {"  ", " |", " ", " |", " "}};
     
     public TicTacToe()
     {
