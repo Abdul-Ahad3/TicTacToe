@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
@@ -28,6 +27,7 @@ public class TicTacToe extends JPanel
         add(new gPanel(), BorderLayout.CENTER);
     }
 
+    //gPanel for the game board
     public class gPanel extends JPanel implements Icon
     {
         int w, h;
@@ -48,7 +48,7 @@ public class TicTacToe extends JPanel
         {
             setBackground(Color.ORANGE);
             setSize(500, 500);
-            setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+            setBorder(BorderFactory.createLineBorder(Color.GRAY, 5));
 
             addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e){
@@ -60,21 +60,133 @@ public class TicTacToe extends JPanel
 
         @Override
         public void paintIcon(Component c, Graphics g, int x, int y) {
+            boolean b1 = x <= w/3 && y <= h/3;
+            boolean b2 = x >= w/3 && x <= 2*w/3 && y <= h/3;
+            boolean b3 = x >= 2*w/3 && y <= h/3;
+            boolean b4 = x <= w/3 && y >= h/3 && y <= 2*h/3;
+            boolean b5 = x >= w/3 && x <= 2*w/3 && y >= h/3 && y <= 2*h/3;
+            boolean b6 = x >= 2*w/3 && y >= h/3 && y <= 2*h/3;
+            boolean b7 = x <= w/3 && y >= 2*h/3;
+            boolean b8 = x >= w/3 && x <= 2*w/3 && y >= 2*h/3;
+            boolean b9 = x >= 2*w/3 && y >= 2*h/3;
+            
             Graphics2D g2d = (Graphics2D) g.create();
-            if(turn && x <= h/3 && y <= h/3){
+            if(turn && b1){
                 g2d.setColor(Color.RED);
                 g2d.setStroke(new BasicStroke(5));
-                g2d.drawLine(5, 5, w/3 , h/3);
-                g2d.drawLine(5, h/3, w/3, 5);
+                g2d.drawLine(8, 8, w/3 - 8 , h/3 - 8);
+                g2d.drawLine(8, h/3 - 8, w/3 - 8, 8);
                 turn = !turn;
-            }else{
+            }else if(!turn && b1){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
-                g2d.drawOval(5, 5, w/3 - 5, h/3 - 5);
+                g2d.drawOval(5, 5, w/3 - 8, h/3 - 8);
                 turn = !turn;
             }
             
-            
+            if(turn && b2){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(w/3 + 8, 8, 2*w/3 - 8 , h/3 - 8);
+                g2d.drawLine(w/3 + 8, h/3 - 8, 2*w/3 - 8, 8);
+                turn = !turn;
+            }else if(!turn && b2){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(w/3 + 5, 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b3){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(2*w/3 + 8, 8, w - 8 , h/3 - 8);
+                g2d.drawLine(2*w/3 + 8, h/3 - 8, w - 8, 8);
+                turn = !turn;
+            }else if(!turn && b3){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(2*w/3 + 5, 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b4){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(8, h/3 + 8, w/3 - 8 , 2*h/3 - 8);
+                g2d.drawLine(8, 2*h/3 - 8, w/3 - 8, h/3 + 8);
+                turn = !turn;
+            }else if(!turn && b4){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(5, h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b5){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(w/3 + 8, h/3 + 8, 2*w/3 - 8 , 2*h/3 - 8);
+                g2d.drawLine(w/3 + 8, 2*h/3 - 8, 2*w/3 - 8, h/3 + 8);
+                turn = !turn;
+            }else if(!turn && b5){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(w/3 + 5, h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b6){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(2*w/3 + 8, h/3 + 8, w - 8 , 2*h/3 - 8);
+                g2d.drawLine(w - 8, h/3 + 8, 2*w/3 + 8, 2*h/3 - 8);
+                turn = !turn;
+            }else if(!turn && b6){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(2*w/3 + 5, h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b7){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(8, 2*h/3 + 8, w/3 - 8 , h - 8);
+                g2d.drawLine(8, h - 8, w/3 - 8, 2*h/3 + 8);
+                turn = !turn;
+            }else if(!turn && b7){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b8){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(w/3 + 8, 2*h/3 + 8, 2*w/3 - 8 , h - 8);
+                g2d.drawLine(w/3 + 8, h - 8, 2*w/3 - 8, 2*h/3 + 8);
+                turn = !turn;
+            }else if(!turn && b8){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(w/3 + 5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
+
+            if(turn && b9){
+                g2d.setColor(Color.RED);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawLine(2*w/3 + 8, 2*h/3 + 8, w - 8 , h - 8);
+                g2d.drawLine(2*w/3 + 8, h - 8, w - 8, 2*h/3 + 8);
+                turn = !turn;
+            }else if(!turn && b9){
+                g2d.setColor(Color.BLUE);
+                g2d.setStroke(new BasicStroke(5));
+                g2d.drawOval(2*w/3 + 5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
+                turn = !turn;
+            }
         }
 
         @Override
