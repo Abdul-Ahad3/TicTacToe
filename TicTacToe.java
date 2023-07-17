@@ -61,11 +61,20 @@ public class TicTacToe extends JPanel
                     paintIcon(gPanel, getGraphics(), x, y);
 
                     if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
-                        JOptionPane.showMessageDialog(null, "Player 1 has wins");
+                        JOptionPane.showMessageDialog(null, "Player 1 wins");
                         removeAll();  revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
                     }else if(topO == 3 || mid1O == 3 || bottomO == 3 || leftO == 3 || mid2O == 3 || rightO ==3 || cross1O == 3 || cross2O == 3){
-                        JOptionPane.showMessageDialog(null, "Player 2 has wins");
+                        JOptionPane.showMessageDialog(null, "Player 2 wins");
                         removeAll();  revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
+                    }else if (topX + mid1X + bottomX + leftX + mid2X + rightX + cross1X + cross2X + topO + mid1O + bottomO + leftO + mid2O + rightO + cross1O + cross2O == 24) {
+                        JOptionPane.showMessageDialog(null, "It's a tie!");
+                        removeAll();  revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
                     }
                 }
             });
