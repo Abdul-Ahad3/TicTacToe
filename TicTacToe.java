@@ -60,8 +60,12 @@ public class TicTacToe extends JPanel
                     x = e.getX();  y = e.getY();
                     paintIcon(gPanel, getGraphics(), x, y);
 
-                    if(topX == 3){
-                        JOptionPane.showMessageDialog(null, "Player 1 has won");
+                    if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
+                        JOptionPane.showMessageDialog(null, "Player 1 has wins");
+                        removeAll();  revalidate();  repaint();
+                    }else if(topO == 3 || mid1O == 3 || bottomO == 3 || leftO == 3 || mid2O == 3 || rightO ==3 || cross1O == 3 || cross2O == 3){
+                        JOptionPane.showMessageDialog(null, "Player 2 has wins");
+                        removeAll();  revalidate();  repaint();
                     }
                 }
             });
