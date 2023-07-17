@@ -8,8 +8,8 @@ public class TicTacToe extends JPanel
 {
     JPanel sPanel = new JPanel();  JPanel gPanel = new JPanel();
     JLabel title = new JLabel("Tic Tac Toe Game");
-    JLabel player1 = new JLabel("PLAYER 1 : O");
-    JLabel player2 = new JLabel("PLAYER 2 : X");
+    JLabel player1 = new JLabel("PLAYER 1 : X");
+    JLabel player2 = new JLabel("PLAYER 2 : O");
     
     public TicTacToe()
     {
@@ -32,6 +32,7 @@ public class TicTacToe extends JPanel
     {
         int w, h;
         int x, y;  boolean turn = true;
+        boolean c1, c2, c3, c4, c5, c6, c7, c8, c9;
         
         @Override
         public void paintComponent(Graphics g)
@@ -56,6 +57,32 @@ public class TicTacToe extends JPanel
                 public void mouseClicked(MouseEvent e){
                     x = e.getX();  y = e.getY();
                     paintIcon(gPanel, getGraphics(), x, y);
+
+                    if(c1 && c2 && c3){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if (c4 && c5 && c6){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c7 && c8 && c9){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c1 && c4 && c7){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c2 && c5 && c8){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c3 && c6 && c9){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c1 && c5 && c9){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }else if(c3 && c5 && c7){
+                        JOptionPane.showMessageDialog(null, "Player 1 has WON!!!");
+                        removeAll();  revalidate();  repaint();
+                    }
                 }
             });
         }
@@ -78,12 +105,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(8, 8, w/3 - 8 , h/3 - 8);
                 g2d.drawLine(8, h/3 - 8, w/3 - 8, 8);
-                turn = !turn;
+                turn = !turn;  c1 = true;
             }else if(!turn && b1){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(5, 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c1 = false;
             }
             
             if(turn && b2){
@@ -91,12 +118,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(w/3 + 8, 8, 2*w/3 - 8 , h/3 - 8);
                 g2d.drawLine(w/3 + 8, h/3 - 8, 2*w/3 - 8, 8);
-                turn = !turn;
+                turn = !turn;  c2 = true;
             }else if(!turn && b2){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(w/3 + 5, 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c2 = false;
             }
 
             if(turn && b3){
@@ -104,12 +131,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(2*w/3 + 8, 8, w - 8 , h/3 - 8);
                 g2d.drawLine(2*w/3 + 8, h/3 - 8, w - 8, 8);
-                turn = !turn;
+                turn = !turn;  c3 = true;
             }else if(!turn && b3){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(2*w/3 + 5, 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c3 = false;
             }
 
             if(turn && b4){
@@ -117,12 +144,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(8, h/3 + 8, w/3 - 8 , 2*h/3 - 8);
                 g2d.drawLine(8, 2*h/3 - 8, w/3 - 8, h/3 + 8);
-                turn = !turn;
+                turn = !turn;  c4 = true;
             }else if(!turn && b4){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(5, h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c4 = false;
             }
 
             if(turn && b5){
@@ -130,12 +157,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(w/3 + 8, h/3 + 8, 2*w/3 - 8 , 2*h/3 - 8);
                 g2d.drawLine(w/3 + 8, 2*h/3 - 8, 2*w/3 - 8, h/3 + 8);
-                turn = !turn;
+                turn = !turn;  c5 = true;
             }else if(!turn && b5){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(w/3 + 5, h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c5 = false;
             }
 
             if(turn && b6){
@@ -143,12 +170,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(2*w/3 + 8, h/3 + 8, w - 8 , 2*h/3 - 8);
                 g2d.drawLine(w - 8, h/3 + 8, 2*w/3 + 8, 2*h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c6 = true;
             }else if(!turn && b6){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(2*w/3 + 5, h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c6 = false;
             }
 
             if(turn && b7){
@@ -156,12 +183,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(8, 2*h/3 + 8, w/3 - 8 , h - 8);
                 g2d.drawLine(8, h - 8, w/3 - 8, 2*h/3 + 8);
-                turn = !turn;
+                turn = !turn;  c7 = true;
             }else if(!turn && b7){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn; c7 = false;
             }
 
             if(turn && b8){
@@ -169,12 +196,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(w/3 + 8, 2*h/3 + 8, 2*w/3 - 8 , h - 8);
                 g2d.drawLine(w/3 + 8, h - 8, 2*w/3 - 8, 2*h/3 + 8);
-                turn = !turn;
+                turn = !turn;  c8 = true;
             }else if(!turn && b8){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(w/3 + 5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c8 = false;
             }
 
             if(turn && b9){
@@ -182,12 +209,12 @@ public class TicTacToe extends JPanel
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawLine(2*w/3 + 8, 2*h/3 + 8, w - 8 , h - 8);
                 g2d.drawLine(2*w/3 + 8, h - 8, w - 8, 2*h/3 + 8);
-                turn = !turn;
+                turn = !turn;  c9 = true;
             }else if(!turn && b9){
                 g2d.setColor(Color.BLUE);
                 g2d.setStroke(new BasicStroke(5));
                 g2d.drawOval(2*w/3 + 5, 2*h/3 + 5, w/3 - 8, h/3 - 8);
-                turn = !turn;
+                turn = !turn;  c9 = false;
             }
         }
 
