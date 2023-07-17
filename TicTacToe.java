@@ -10,6 +10,7 @@ public class TicTacToe extends JPanel
     JLabel player2 = new JLabel("PLAYER 2 : X");
     JButton[][] buttons = new JButton[3][3];
     boolean turn = true;  boolean clicks = true;  int score = 0;
+    String[] win1 = {"O", "O", "O"};  String[] win2 = {"X", "X", "X"};
 
     public TicTacToe()
     {
@@ -18,7 +19,6 @@ public class TicTacToe extends JPanel
         bPanel.setLayout(new GridLayout(3, 3));
         setBackground(Color.pink);  sPanel.setBackground(Color.PINK);
         title.setFont(new Font("Times New Roman", Font.BOLD, 50));
-        
         for(int x = 0; x < 3; x++)
             for(int y = 0; y < 3; y++)
             {
@@ -30,6 +30,15 @@ public class TicTacToe extends JPanel
                 bPanel.add(buttons[x][y]);
 
                 buttons[x][y].addActionListener(e -> {
+                    String[] top = {buttons[0][0].getText(), buttons[0][1].getText(), buttons[0][2].getText()};
+                    String[] mid1 = {buttons[1][0].getText(), buttons[1][1].getText(), buttons[1][2].getText()};
+                    String[] bottom = {buttons[2][0].getText(), buttons[2][1].getText(), buttons[2][2].getText()};
+                    String[] left = {buttons[0][0].getText(), buttons[1][0].getText(), buttons[2][0].getText()};
+                    String[] mid2 = {buttons[0][1].getText(), buttons[1][1].getText(), buttons[2][1].getText()};
+                    String[] right = {buttons[0][2].getText(), buttons[1][2].getText(), buttons[2][2].getText()};
+                    String[] cross1 = {buttons[0][0].getText(), buttons[1][1].getText(), buttons[2][2].getText()};
+                    String[] cross2 = {buttons[0][2].getText(), buttons[1][1].getText(), buttons[2][0].getText()};
+                    
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;  buttons[X][Y].setEnabled(false);}
                     else{buttons[X][Y].setText("X");  turn = !turn;  buttons[X][Y].setEnabled(false);}
             });
