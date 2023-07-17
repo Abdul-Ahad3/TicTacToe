@@ -19,6 +19,9 @@ public class TicTacToe extends JPanel
         bPanel.setLayout(new GridLayout(3, 3));
         setBackground(Color.pink);  sPanel.setBackground(Color.PINK);
         title.setFont(new Font("Times New Roman", Font.BOLD, 50));
+        player1.setFont(new Font("Arial", Font.BOLD, 40));
+        player2.setFont(new Font("Atial", Font.BOLD, 40));
+        
         for(int x = 0; x < 3; x++)
             for(int y = 0; y < 3; y++)
             {
