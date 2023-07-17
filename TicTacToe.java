@@ -38,10 +38,12 @@ public class TicTacToe extends JPanel
         {
             super.paintComponent(g);
             w = getWidth();  h = getHeight();
-            g.drawLine(w/3, 0, w/3, h);
-            g.drawLine(w * 2/3, 0, w * 2/3, h);
-            g.drawLine(0, h/3, w, h/3);
-            g.drawLine(0, h * 2/3, w, h * 2/3);
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setStroke(new BasicStroke(5));
+            g2d.drawLine(w/3, 0, w/3, h);
+            g2d.drawLine(w * 2/3, 0, w * 2/3, h);
+            g2d.drawLine(0, h/3, w, h/3);
+            g2d.drawLine(0, h * 2/3, w, h * 2/3);
         }
 
         public gPanel()
