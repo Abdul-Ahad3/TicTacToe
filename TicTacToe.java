@@ -1,17 +1,24 @@
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 
-public class TicTacToe extends JPanel
+public class TicTacToe extends JPanel 
 {
     JPanel sPanel = new JPanel();  JPanel gPanel = new JPanel();
     JLabel title = new JLabel("Tic Tac Toe Game");
     JLabel player1 = new JLabel("PLAYER 1 : X");
     JLabel player2 = new JLabel("PLAYER 2 : O");
     
-    public TicTacToe()
+    public TicTacToe() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {
         setLayout(new BorderLayout());
         sPanel.setLayout(new GridLayout(2, 2));
@@ -49,17 +56,23 @@ public class TicTacToe extends JPanel
             g2d.drawLine(0, h * 2/3, w, h * 2/3);
         }
 
-        public gPanel()
+        public gPanel() throws UnsupportedAudioFileException, IOException, LineUnavailableException
         {
             setBackground(Color.ORANGE);
             setSize(500, 500);
             setBorder(BorderFactory.createLineBorder(Color.GRAY, 5));
 
+            File file = new File("ButtonSound.wav");
+            AudioInputStream aydiostream = AudioSystem.getAudioInputStream(file);
+            Clip clip = AudioSystem.getClip();
+            clip.open(aydiostream);
+
             addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e){
+                    
                     x = e.getX();  y = e.getY();
                     paintIcon(gPanel, getGraphics(), x, y);
-
+                    
                     if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
                         JOptionPane.showMessageDialog(null, "Player 1 wins");
                         removeAll();  revalidate();  repaint();
