@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.Arrays;
+
 import javax.swing.*;
 
 public class TicTacToe extends JPanel
@@ -20,7 +22,7 @@ public class TicTacToe extends JPanel
         setBackground(Color.pink);  sPanel.setBackground(Color.PINK);
         title.setFont(new Font("Times New Roman", Font.BOLD, 50));
         player1.setFont(new Font("Arial", Font.BOLD, 40));
-        player2.setFont(new Font("Atial", Font.BOLD, 40));
+        player2.setFont(new Font("Arial", Font.BOLD, 40));
         
         for(int x = 0; x < 3; x++)
             for(int y = 0; y < 3; y++)
@@ -42,8 +44,12 @@ public class TicTacToe extends JPanel
                     String[] cross1 = {buttons[0][0].getText(), buttons[1][1].getText(), buttons[2][2].getText()};
                     String[] cross2 = {buttons[0][2].getText(), buttons[1][1].getText(), buttons[2][0].getText()};
                     
+                    if(Arrays.equals(top, win1)){JOptionPane.showMessageDialog(null, "Player1 wins!!!");}
+                    
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;  buttons[X][Y].setEnabled(false);}
                     else{buttons[X][Y].setText("X");  turn = !turn;  buttons[X][Y].setEnabled(false);}
+
+                    
             });
         
         sPanel.add(player1, BorderLayout.WEST);  sPanel.add(player2, BorderLayout.EAST);
