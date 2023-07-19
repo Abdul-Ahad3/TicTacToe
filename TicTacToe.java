@@ -38,33 +38,38 @@ public class TicTacToe extends JPanel
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;  buttons[X][Y].setEnabled(false);}
                     else{buttons[X][Y].setText("X");  turn = !turn;  buttons[X][Y].setEnabled(false);}
                     
-                    if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
-                    else if(buttons[0][1].getText() == "O"){topO++;  mid2O++;}
-                    else if(buttons[0][2].getText() == "O"){topO++;  rightO++;  cross2O++;}
-                    else if(buttons[1][0].getText() == "O"){mid1O++;  leftO++;}
-                    else if(buttons[1][1].getText() == "O"){mid1O++;  mid2O++;  cross1O++;  cross2O++;}
-                    else if(buttons[1][2].getText() == "O"){mid1O++;  rightO++;}
-                    else if(buttons[2][0].getText() == "O"){leftO++;  bottomO++;  cross1O++;}
-                    else if(buttons[2][1].getText() == "O"){mid2O++;  bottomO++;}
-                    else if(buttons[2][2].getText() == "O"){rightO++;  bottomO++;  cross1O++;}
+                    //Checks for text on buttons
+                    if (buttons[X][0].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[X][0].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
 
-                    if(buttons[0][0].getText() == "X"){topX++;  leftX++;  cross1X++;}
-                    else if(buttons[0][1].getText() == "X"){topX++;  mid2X++;}
-                    else if(buttons[0][2].getText() == "X"){topX++;  rightX++;  cross2X++;}
-                    else if(buttons[1][0].getText() == "X"){mid1X++;  leftX++;}
-                    else if(buttons[1][1].getText() == "X"){mid1X++;  mid2X++;  cross1X++;  cross2X++;}
-                    else if(buttons[1][2].getText() == "X"){mid1X++;  rightX++;}
-                    else if(buttons[2][0].getText() == "X"){leftX++;  bottomX++;  cross1X++;}
-                    else if(buttons[2][1].getText() == "X"){mid2X++;  bottomX++;}
-                    else if(buttons[2][2].getText() == "X"){rightX++;  bottomX++;  cross1X++;}
+                    if (buttons[X][1].getText().equals("O")) {mid1O++;  leftO++;  cross1O++;} 
+                    else if (buttons[X][1].getText().equals("X")) {mid1X++;  leftX++;  cross1X++;}
+
+                    if (buttons[X][2].getText().equals("O")) {bottomO++;  leftO++;  cross2O++;} 
+                    else if (buttons[X][2].getText().equals("X")) {bottomX++;  leftX++;  cross2X++;}
+
+                    if (buttons[0][Y].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[0][Y].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
+
+                    if (buttons[1][Y].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[1][Y].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
+
+                    if (buttons[2][Y].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[2][Y].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
+
+                    if (buttons[X][0].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[X][0].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
+
+                    if (buttons[X][0].getText().equals("O")) {topO++;  leftO++;  cross1O++;} 
+                    else if (buttons[X][0].getText().equals("X")) {topX++;  leftX++;  cross1X++;}
 
                     if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
-                        JOptionPane.showMessageDialog(null, "Player 1 wins");
+                        JOptionPane.showMessageDialog(null, "Player 2 wins");
                         revalidate();  repaint();
                         topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
                         topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
                     }else if(topO == 3 || mid1O == 3 || bottomO == 3 || leftO == 3 || mid2O == 3 || rightO ==3 || cross1O == 3 || cross2O == 3){
-                        JOptionPane.showMessageDialog(null, "Player 2 wins");
+                        JOptionPane.showMessageDialog(null, "Player 1 wins");
                         revalidate();  repaint();
                         topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
                         topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
