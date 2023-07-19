@@ -57,6 +57,23 @@ public class TicTacToe extends JPanel
                     else if(buttons[2][0].getText() == "X"){leftX++;  bottomX++;  cross1X++;}
                     else if(buttons[2][1].getText() == "X"){mid2X++;  bottomX++;}
                     else if(buttons[2][2].getText() == "X"){rightX++;  bottomX++;  cross1X++;}
+
+                    if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
+                        JOptionPane.showMessageDialog(null, "Player 1 wins");
+                        revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
+                    }else if(topO == 3 || mid1O == 3 || bottomO == 3 || leftO == 3 || mid2O == 3 || rightO ==3 || cross1O == 3 || cross2O == 3){
+                        JOptionPane.showMessageDialog(null, "Player 2 wins");
+                        revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
+                    }else if (topX + mid1X + bottomX + leftX + mid2X + rightX + cross1X + cross2X + topO + mid1O + bottomO + leftO + mid2O + rightO + cross1O + cross2O == 24) {
+                        JOptionPane.showMessageDialog(null, "It's a tie!");
+                        revalidate();  repaint();
+                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
+                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
+                    }
             });
         
         sPanel.add(player1, BorderLayout.WEST);  sPanel.add(player2, BorderLayout.EAST);
