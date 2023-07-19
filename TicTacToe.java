@@ -35,16 +35,16 @@ public class TicTacToe extends JPanel
                 bPanel.add(buttons[x][y]);
 
                 buttons[x][y].addActionListener(e -> {
-                    String[] top = {buttons[0][0].getText(), buttons[0][1].getText(), buttons[0][2].getText()};
-                    String[] mid1 = {buttons[1][0].getText(), buttons[1][1].getText(), buttons[1][2].getText()};
-                    String[] bottom = {buttons[2][0].getText(), buttons[2][1].getText(), buttons[2][2].getText()};
-                    String[] left = {buttons[0][0].getText(), buttons[1][0].getText(), buttons[2][0].getText()};
-                    String[] mid2 = {buttons[0][1].getText(), buttons[1][1].getText(), buttons[2][1].getText()};
-                    String[] right = {buttons[0][2].getText(), buttons[1][2].getText(), buttons[2][2].getText()};
-                    String[] cross1 = {buttons[0][0].getText(), buttons[1][1].getText(), buttons[2][2].getText()};
-                    String[] cross2 = {buttons[0][2].getText(), buttons[1][1].getText(), buttons[2][0].getText()};
-                    
-                    if(Arrays.equals(top, win1)){JOptionPane.showMessageDialog(null, "Player1 wins!!!");}
+                    int topX=0, mid1X=0, bottomX=0, leftX=0, mid2X=0, rightX=0, cross1X=0, cross2X=0;
+                    int topO=0, mid1O=0, bottomO=0, leftO=0, mid2O=0, rightO=0, cross1O=0, cross2O=0;
+                    if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
+                    else if(buttons[0][0].getText() == "O"){topO++;  leftO++;  cross1O++;}
                     
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;  buttons[X][Y].setEnabled(false);}
                     else{buttons[X][Y].setText("X");  turn = !turn;  buttons[X][Y].setEnabled(false);}
