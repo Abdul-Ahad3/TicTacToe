@@ -34,8 +34,8 @@ public class TicTacToe extends JPanel
                 bPanel.add(buttons[x][y]);
 
                 buttons[x][y].addActionListener(e -> {
-                    if(turn){buttons[X][Y].setText("O");  turn = !turn;  buttons[X][Y].setEnabled(false);}
-                    else{buttons[X][Y].setText("X");  turn = !turn;  buttons[X][Y].setEnabled(false);}
+                    if(turn){buttons[X][Y].setText("O");  turn = !turn;}
+                    else{buttons[X][Y].setText("X");  turn = !turn;}
                     
                     //Checks for text on buttons
                     if (buttons[X][0].getText().equals("O")) {topO++;} 
