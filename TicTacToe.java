@@ -37,47 +37,54 @@ public class TicTacToe extends JPanel
                     if(turn){buttons[X][Y].setText("O");  turn = !turn;}
                     else{buttons[X][Y].setText("X");  turn = !turn;}
                     
-                    //Checks for text on buttons
-                    if (buttons[X][0].getText().equals("O")) {topO++;} 
-                    else if (buttons[X][0].getText().equals("X")) {topX++;}
+                    //Win condition
+                    //top
+                    if(buttons[0][0].getText() == "O" && buttons[0][1].getText() == "O" && buttons[0][2].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][0].getText() == "X" && buttons[0][1].getText() == "X" && buttons[0][2].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[X][1].getText().equals("O")) {mid1O++;} 
-                    else if (buttons[X][1].getText().equals("X")) {mid1X++;}
+                    //horizontal mid
+                    if(buttons[1][0].getText() == "O" && buttons[1][1].getText() == "O" && buttons[1][2].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[1][0].getText() == "X" && buttons[1][1].getText() == "X" && buttons[1][2].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[X][2].getText().equals("O")) {bottomO++;} 
-                    else if (buttons[X][2].getText().equals("X")) {bottomX++;}
+                    //bottom
+                    if(buttons[2][0].getText() == "O" && buttons[2][1].getText() == "O" && buttons[2][2].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[2][0].getText() == "X" && buttons[2][1].getText() == "X" && buttons[2][2].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[0][Y].getText().equals("O")) {leftO++;} 
-                    else if (buttons[0][Y].getText().equals("X")) {leftX++;}
+                    //left
+                    if(buttons[0][0].getText() == "O" && buttons[1][0].getText() == "O" && buttons[2][0].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][0].getText() == "X" && buttons[1][0].getText() == "X" && buttons[2][0].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[1][Y].getText().equals("O")) {mid2O++;} 
-                    else if (buttons[1][Y].getText().equals("X")) {mid2X++;}
+                    //vertical mid
+                    if(buttons[0][1].getText() == "O" && buttons[1][1].getText() == "O" && buttons[2][1].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][1].getText() == "X" && buttons[1][1].getText() == "X" && buttons[2][1].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[2][Y].getText().equals("O")) {rightO++;} 
-                    else if (buttons[2][Y].getText().equals("X")) {rightX++;}
+                    //right
+                    if(buttons[0][2].getText() == "O" && buttons[1][2].getText() == "O" && buttons[2][2].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][2].getText() == "X" && buttons[1][2].getText() == "X" && buttons[2][2].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[X][0].getText().equals("O") && X==Y) {cross1O++;} 
-                    else if (buttons[X][0].getText().equals("X") && X==Y) {cross1X++;}
+                    //diagonal-1
+                    if(buttons[0][0].getText() == "O" && buttons[1][1].getText() == "O" && buttons[2][2].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][0].getText() == "X" && buttons[1][1].getText() == "X" && buttons[2][2].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
 
-                    if (buttons[X][0].getText().equals("O") && X+Y==2) {cross2O++;} 
-                    else if (buttons[X][0].getText().equals("X") && X+Y==2) {cross2X++;}
-
-                    if(topX == 3 || mid1X == 3 || bottomX == 3 || leftX == 3 || mid2X == 3 || rightX ==3 || cross1X == 3 || cross2X == 3){
-                        JOptionPane.showMessageDialog(null, "Player 2 wins");
-                        
-                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
-                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
-                    }else if(topO == 3 || mid1O == 3 || bottomO == 3 || leftO == 3 || mid2O == 3 || rightO ==3 || cross1O == 3 || cross2O == 3){
-                        JOptionPane.showMessageDialog(null, "Player 1 wins");
-                        
-                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
-                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
-                    }else if (topX + mid1X + bottomX + leftX + mid2X + rightX + cross1X + cross2X + topO + mid1O + bottomO + leftO + mid2O + rightO + cross1O + cross2O == 24) {
-                        JOptionPane.showMessageDialog(null, "It's a tie!");
-                        
-                        topX=0; mid1X=0; bottomX=0; leftX=0; mid2X=0; rightX=0; cross1X=0; cross2X=0;
-                        topO=0; mid1O=0; bottomO=0; leftO=0; mid2O=0; rightO=0; cross1O=0; cross2O=0;
-                    }
+                    //diagonal-2
+                    if(buttons[0][2].getText() == "O" && buttons[1][1].getText() == "O" && buttons[2][0].getText() == "O")
+                    {JOptionPane.showMessageDialog(null, "Player 1 wins");}
+                    else if(buttons[0][2].getText() == "X" && buttons[1][1].getText() == "X" && buttons[2][0].getText() == "X")
+                    {JOptionPane.showMessageDialog(null, "Player 2 wins");}
                 });
             }
         
